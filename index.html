@@ -10,14 +10,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Pacifico&amp;display=swap" rel="stylesheet">
 <style>
-  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;background:#FFF8EF;}
+  body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;background:#FFF8EF;padding-bottom: 80px;}
   .script{font-family:'Pacifico',cursive;font-weight:400;}
   a{color:#E8437A;}
   a:hover{color:#C7295F;}
   @keyframes floaty{0%,100%{transform:translateY(0px) rotate(-2deg);}50%{transform:translateY(-18px) rotate(2deg);}}
   @keyframes floaty2{0%,100%{transform:translateY(0px);}50%{transform:translateY(-12px);}}
   @keyframes blob{0%,100%{border-radius:42% 58% 63% 37% / 41% 44% 56% 59%;}50%{border-radius:63% 37% 41% 59% / 55% 48% 52% 45%;}}
-  @media (max-width:640px){
+  @media (max-width:640px)
     .rg-header{padding:14px 20px !important;}
     .rg-header span{font-size:11px !important;padding:8px 12px !important;}
     .rg-hero{padding:36px 20px 56px !important;}
@@ -90,7 +90,19 @@
     .rg-email h2{font-size:28px !important;}
     .rg-footer{padding:36px 20px !important;}
     .rg-footer-row{flex-direction:column !important;align-items:center !important;text-align:center !important;}
-  }
+    .floating-amazon-cta {
+      position: fixed !important;
+      left: 50% !important;
+      bottom: 16px !important;
+      transform: translateX(-50%) !important;
+      z-index: 1000 !important;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.22) !important;
+    }
+    body {
+      padding-bottom: 90px !important;
+    }
+  
 </style>
 
 
@@ -384,7 +396,21 @@
 <span style="font-size:12px;font-weight:700;color:#5B5450;background:#FFF3E9;padding:7px 13px;border-radius:999px;">No Allergens</span>
 <span style="font-size:12px;font-weight:700;color:#5B5450;background:#FFF3E9;padding:7px 13px;border-radius:999px;">Made in US</span>
     </div>
-    <a href="#email-form" style="display:inline-flex;align-items:center;text-decoration:none;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,0.12);">
+    <a href="#email-form"
+    class="floating-amazon-cta"
+    style="
+    display:inline-flex;
+    align-items:center;
+    text-decoration:none;
+    border-radius:999px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.22);
+    position:fixed;
+    bottom:16px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:1000;
+    white-space:nowrap;
+    ">
       <span style="background:#171717;color:#fff;padding:12px 14px 12px 16px;border-radius:999px 0 0 999px;font-size:13px;font-weight:700;display:flex;align-items:center;gap:6px;">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2 L20 6 L20 14 L12 22 L4 14 L4 6 Z" fill="#FF9900"></path></svg>
         amazon
