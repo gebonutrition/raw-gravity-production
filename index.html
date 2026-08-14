@@ -36,12 +36,56 @@
     .rg-format{padding:48px 20px !important;}
     .rg-format-grid{grid-template-columns:1fr !important;max-width:280px !important;}
     .rg-cta-banner{padding:32px 20px !important;justify-content:center !important;text-align:center !important;}
-    .rg-ugc{padding:48px 20px !important;}
-    .rg-ugc-grid{grid-template-columns:repeat(2,1fr) !important;grid-template-rows:repeat(4,160px) !important;}
-    .rg-ugc-grid > div:first-child{grid-column:span 2 !important;grid-row:span 1 !important;}
-    .rg-ugc-grid > div:nth-child(4){grid-row:span 1 !important;}
-    .rg-reviews{padding:48px 20px !important;}
-    .rg-reviews-grid{grid-template-columns:1fr !important;}
+    .rg-ugc {
+      padding: 48px 20px !important;
+    }
+
+    .rg-ugc-grid {
+      width: 100% !important;
+      max-width: none !important;
+      height: auto !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      grid-template-rows: repeat(3, 160px) !important;
+      gap: 10px !important;
+    }
+
+    .rg-ugc-grid > div {
+      grid-column: auto !important;
+      grid-row: auto !important;
+    }
+
+    .rg-ugc-grid > div:nth-child(1) {
+      grid-column: 1 / 3 !important;
+      grid-row: 1 !important;
+    }
+
+    .rg-ugc-grid > div:nth-child(2) {
+      grid-column: 1 !important;
+      grid-row: 2 !important;
+    }
+
+    .rg-ugc-grid > div:nth-child(3) {
+      grid-column: 2 !important;
+      grid-row: 2 !important;
+    }
+
+    .rg-ugc-grid > div:nth-child(4) {
+      grid-column: 1 !important;
+      grid-row: 3 !important;
+    }
+
+    .rg-ugc-grid > div:nth-child(5) {
+      grid-column: 2 !important;
+      grid-row: 3 !important;
+    }
+    .rg-reviews > div {
+      width: 100% !important;
+      max-width: none !important;
+    }
+
+    .rg-reviews-grid {
+      grid-template-columns: 1fr !important;
+    }
     .rg-email{padding:48px 20px !important;}
     .rg-email h2{font-size:28px !important;}
     .rg-footer{padding:36px 20px !important;}
@@ -224,7 +268,7 @@
   </div>
 </section><section data-screen-label="Reviews" class="rg-reviews" style="padding:70px 48px;background:linear-gradient(180deg,#FFEAE0 0%,#FFF3E9 100%);">
   <div style="max-width:1100px;margin:0 auto;">
-    <div style="background: rgba(255,255,255,0.65); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.9); border-radius: 28px; padding: 38px; box-shadow: 0 14px 40px rgba(0,0,0,0.08); margin-bottom: 26px; max-width: 700px; width: 819px; height: 195px">
+    <div style="background: rgba(255,255,255,0.65); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.9); border-radius: 28px; padding: 38px; box-shadow: 0 14px 40px rgba(0,0,0,0.08); margin-bottom: 26px; max-width: 700px; width: 100%; height: auto; box-sizing: border-box;">
       <div style="color:#FFA733;font-size:16px;letter-spacing:2px;margin-bottom:10px;">★★★★★</div>
       <div style="font-size:22px;font-weight:800;color:#1A1A1A;margin-bottom:10px;">"My Nervous System Said Thank You"</div>
       <div style="font-size:15px;color:#5B5450;line-height:1.6;margin-bottom:18px;">"I gave it 14 days. No jitters, no crash — just steady focus all morning. My nervous system said thank you."</div>
