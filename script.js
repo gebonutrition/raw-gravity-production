@@ -1,6 +1,3 @@
-const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyDVcre5NgN8XKPA8IZYqXH_fvyyM8-XjCCUClpQbDzJOKMFOBTed2MoOa1bcAwPPdb/exec";
-
 const LANDING_NAME = "raw-gravity";
 
 const form = document.getElementById("lead-form");
@@ -11,7 +8,7 @@ const successState = document.getElementById("success-state");
 if (!form || !emailInput || !submitButton || !successState) {
   console.error("Email form elements not found.");
 } else {
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const email = emailInput.value.trim();
@@ -26,55 +23,35 @@ if (!form || !emailInput || !submitButton || !successState) {
     submitButton.disabled = true;
     submitButton.textContent = "Sending...";
 
-    const iframeName = "google-sheets-submit";
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          landing: LANDING_NAME,
+          source: source
+        })
+      });
 
-    let iframe = document.getElementById(iframeName);
+      const result = await response.json();
 
-    if (!iframe) {
-      iframe = document.createElement("iframe");
-      iframe.id = iframeName;
-      iframe.name = iframeName;
-
-      iframe.style.display = "none";
-
-      document.body.appendChild(iframe);
-    }
-
-    const submitForm = document.createElement("form");
-
-    submitForm.method = "POST";
-    submitForm.action = GOOGLE_SCRIPT_URL;
-    submitForm.target = iframeName;
-    submitForm.style.display = "none";
-
-    const emailField = document.createElement("input");
-    emailField.type = "hidden";
-    emailField.name = "email";
-    emailField.value = email;
-
-    const landingField = document.createElement("input");
-    landingField.type = "hidden";
-    landingField.name = "landing";
-    landingField.value = LANDING_NAME;
-
-    const sourceField = document.createElement("input");
-    sourceField.type = "hidden";
-    sourceField.name = "source";
-    sourceField.value = source;
-
-    submitForm.appendChild(emailField);
-    submitForm.appendChild(landingField);
-    submitForm.appendChild(sourceField);
-
-    document.body.appendChild(submitForm);
-
-    submitForm.submit();
-
-    setTimeout(() => {
-      submitForm.remove();
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Subscription failed");
+      }
 
       form.style.display = "none";
       successState.style.display = "block";
-    }, 1000);
+
+    } catch (error) {
+      console.error("Klaviyo submission error:", error);
+
+      submitButton.disabled = false;
+      submitButton.textContent = "I want the 40% code →";
+
+      alert("Something went wrong. Please try again.");
+    }
   });
 }
