@@ -1,4 +1,5 @@
 const LANDING_NAME = "raw-gravity";
+const AMAZON_URL = "https://amazon.com";
 
 const form = document.getElementById("lead-form");
 const emailInput = document.getElementById("email-input");
@@ -44,6 +45,10 @@ if (!form || !emailInput || !submitButton || !successState) {
 
       form.style.display = "none";
       successState.style.display = "block";
+
+      setTimeout(() => {
+        window.location.href = AMAZON_URL;
+      }, 2000);
 
     } catch (error) {
       console.error("Klaviyo submission error:", error);
