@@ -128,9 +128,28 @@ export default async function handler(req, res) {
     console.log("Klaviyo profile updated:", profileResponse.status);
     console.log("Klaviyo subscription accepted:", subscribeResponse.status);
 
-    return res.status(200).json({
-      success: true
-    });
+	const amazonUrls = {
+	  tiktok: 'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_9EAB36473ED1EB5F2AC4DBD00BF649CE_afap_abs&ref_=aa_maas&tag=maas',
+
+	  meta: 'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_B05D582BAB7E5BC8F40DEBA1EBC61AEE_afap_abs&ref_=aa_maas&tag=maas',
+
+	  klavio: 'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_25B95FF8BD805EF1A9DF6465C32333F9_afap_abs&ref_=aa_maas&tag=maas',
+
+	  klaviyo: 'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_25B95FF8BD805EF1A9DF6465C32333F9_afap_abs&ref_=aa_maas&tag=maas',
+
+	  instagram: 'https://www.amazon.com/dp/B0GTWB11LW?maas=maas_adg_DA3922AD16009007A17A120E9C2F3E79_afap_abs&ref_=aa_maas&tag=maas'
+	};
+
+	const normalizedSource = cleanSource.toLowerCase();
+
+	const amazonUrl =
+	  amazonUrls[normalizedSource] ||
+	  amazonUrls.meta;
+
+	return res.status(200).json({
+	  success: true,
+	  amazonUrl
+	});
 
   } catch (error) {
     console.error("Vercel API error:", error);
