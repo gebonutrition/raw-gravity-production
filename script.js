@@ -78,7 +78,7 @@ if (!form || !emailInput || !submitButton || !successState) {
       console.error("Klaviyo submission error:", error);
 
       submitButton.disabled = false;
-      submitButton.textContent = "I want the 40% code →";
+      submitButton.textContent = "I want the 25% code →";
 
       alert("Something went wrong. Please try again.");
     }
