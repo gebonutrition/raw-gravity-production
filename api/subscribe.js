@@ -7,18 +7,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { email, landing, source } = req.body || {};
+	const { email, landing, source, creative } = req.body || {};
 
-    if (!email || typeof email !== "string") {
-      return res.status(400).json({
-        success: false,
-        error: "Valid email is required"
-      });
-    }
+	if (!email || typeof email !== "string") {
+		return res.status(400).json({
+			success: false,
+			error: "Valid email is required"
+		});
+	  }
 
-    const cleanEmail = email.trim();
-    const cleanLanding = String(landing || "raw-gravity").trim();
-    const cleanSource = String(source || "unknown").trim();
+	const cleanEmail = email.trim();
+	const cleanLanding = String(landing || "raw-gravity").trim();
+	const cleanSource = String(source || "unknown").trim();
+	const cleanCreative = String(creative || "unknown").trim();
 
     const headers = {
       Authorization: `Klaviyo-API-Key ${process.env.KLAVIYO_PRIVATE_API_KEY}`,
@@ -43,7 +44,8 @@ export default async function handler(req, res) {
               email: cleanEmail,
               properties: {
                 landing: cleanLanding,
-                source: cleanSource
+                source: cleanSource,
+				creative: cleanCreative
               }
             }
           }

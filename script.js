@@ -39,8 +39,10 @@ if (!form || !emailInput || !submitButton || !successState) {
       return;
     }
 
-    const source =
-      new URLSearchParams(window.location.search).get("source") || "unknown";
+    const params = new URLSearchParams(window.location.search);
+
+	const source = params.get("source") || "unknown";
+	const creative = params.get("creative") || "unknown";
 
     submitButton.disabled = true;
     submitButton.textContent = "Sending...";
@@ -54,7 +56,8 @@ if (!form || !emailInput || !submitButton || !successState) {
         body: JSON.stringify({
           email: email,
           landing: LANDING_NAME,
-          source: source
+          source: source,
+		  creative: creative
         })
       });
 
