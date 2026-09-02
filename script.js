@@ -66,6 +66,13 @@ if (!form || !emailInput || !submitButton || !successState) {
 
       form.style.display = "none";
       successState.style.display = "block";
+	  if (typeof window.rawGravityTrackTikTokLead === "function") {
+	  window.rawGravityTrackTikTokLead();
+	}
+
+	if (typeof window.rawGravityTrackMetaLead === "function") {
+	  window.rawGravityTrackMetaLead();
+	}
 
 	const amazonUrl =
 	  AMAZON_URLS[source.toLowerCase()] || DEFAULT_AMAZON_URL;
