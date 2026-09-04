@@ -1,4 +1,4 @@
-const LANDING_NAME = "raw-gravity";
+const LANDING_NAME = "wellness1";
 
 const AMAZON_URLS = {
   tiktok:
