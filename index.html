@@ -29,6 +29,7 @@
   @keyframes floaty2{0%,100%{transform:translateY(0px);}50%{transform:translateY(-12px);}}
   @keyframes blob{0%,100%{border-radius:42% 58% 63% 37% / 41% 44% 56% 59%;}50%{border-radius:63% 37% 41% 59% / 55% 48% 52% 45%;}}
   @media (max-width:640px){
+    
     .rg-header{padding:14px 20px !important;}
     .rg-header span{font-size:11px !important;padding:8px 12px !important;}
     .rg-hero{padding:36px 20px 56px !important;}
@@ -95,10 +96,22 @@
       margin:0 auto !important;
     }
     .rg-usp-grid{grid-template-columns:1fr !important;}
-    .rg-benefits{padding:48px 20px !important;}
+    .rg-benefits{padding:36px 18px !important;}
     .rg-benefits-grid{grid-template-columns:1fr !important;grid-template-rows:auto !important;}
     .rg-benefits-grid > div{grid-row:auto !important;grid-column:auto !important;}
-    .rg-benefits-grid h2{font-size:28px !important;}
+    .rg-benefits h2{
+      font-size:24px !important;
+      line-height:1.15 !important;
+      margin:0 0 10px !important;
+    }
+    .rg-benefits > div:first-child{
+      margin-bottom:26px !important;
+    }
+
+    .rg-benefits > div:first-child p{
+      font-size:13.5px !important;
+      line-height:1.5 !important;
+    }
     .rg-clean{padding:48px 20px !important;}
     .rg-badges-grid{grid-template-columns:repeat(2,1fr) !important;}
     .rg-format{padding:48px 20px !important;}
@@ -244,7 +257,11 @@
 <!-- BLOCK 2 - BENEFITS -->
 <section data-screen-label="Benefits" class="rg-benefits" style="padding:70px 48px;background:linear-gradient(180deg,#FFF0DE 0%,#FFE9EF 100%);">
   <div style="max-width:640px;margin:0 auto 44px;text-align:center;">
-    <h2 style="font-size:38px;font-weight:800;color:#1A1A1A;margin:0 0 14px;letter-spacing:-0.5px;">Same ritual&nbsp;<span class="script" style="color: rgb(232, 67, 122); font-size: 1.05em;">Better</span> body response</h2>
+    <h2 style="font-size:38px;font-weight:800;color:#1A1A1A;margin:0 0 14px;letter-spacing:-0.5px;">
+      Same ritual<span class="mobile-break"><br></span>&nbsp;
+      <span class="script" style="color: rgb(232, 67, 122); font-size: 1.05em;">Better<span class="mobile-break"><br></span></span>
+      body response
+    </h2>
     <p style="font-size:17px;color:#5B5450;line-height:1.5;margin:0;">Raw coffee+ is built for women who love coffee but hate what it does to them.</p>
   </div>
   <div class="rg-benefits-grid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:auto auto;gap:22px;max-width:1100px;margin:0 auto;">
